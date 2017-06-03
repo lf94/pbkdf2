@@ -1,7 +1,10 @@
-var crypto = require('crypto')
+
 /* istanbul ignore next */
-if (!crypto.pbkdf2Sync) {
+
+if (window) {
   var crypto = require('./browser');
+} else {
+  var crypto = require('crypto')
 }
 
 exports.pbkdf2Sync = crypto.pbkdf2Sync
